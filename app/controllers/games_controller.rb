@@ -10,7 +10,7 @@ class GamesController < ApplicationController
 		@game.answer = rand(10)
 
 		@game.save
-		redirect_to @game
+		redirect_to game_path
 	end
 
 	def show
