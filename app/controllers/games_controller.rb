@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
 	def index
+		@games = Game.all
 	end
 
 	def new
@@ -15,8 +16,16 @@ class GamesController < ApplicationController
 
 	def show
   		@game = Game.find(params[:id])
-  		
 	end
+
+	def destroy
+		@game = Game.find(params[:id])
+		@game.destroy
+
+		redirect_to games_path
+	end
+
+
 
 	private
 		def game_params
