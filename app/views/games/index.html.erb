@@ -10,9 +10,8 @@
     <tr>
       <td><%= game.answer %></td>
       <td><%= game.guess %></td>
-      <td><%= link_to 'Show', game_path(game) %></td>
-      <td><%= link_to 'Edit', edit_game_path(game) %></td>
-      <td><%= link_to 'Destroy', game_path(game),
+      <td><%= link_to 'Play', game_path(game) %></td>
+      <td><%= link_to 'Delete', game_path(game),
                       method: :delete, data: { confirm: 'Are you sure?'
 } %></td>
     </tr>
