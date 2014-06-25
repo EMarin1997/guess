@@ -24,10 +24,6 @@ class GamesController < ApplicationController
 		redirect_to @game
 	end
 
-	def edit
-		@game = Game.find(params[:id])
-	end
-
 	def destroy
 		@game = Game.find(params[:id])
 		@game.destroy
