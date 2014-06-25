@@ -1,11 +1,24 @@
 <h1>Guess</h1>
 
+<% if @game.guess > @game.answer %>
+<% x = "#{@game.guess} is too High"%>
+<% elsif @game.guess < @game.answer %>
+<% x = "#{@game.guess} is too Low" %>
+<% else %>
+<% x = "You guessed right!" %>
+<% end %>
+
 <p>
-  <strong>You Guessed:</strong>
-  <%= @game.guess %>
+  <strong>Your Guess:</strong><br>
+  <%= x %>
 </p>
 
-<%= link_to 'Back', games_path %>
+<% if @game.guess != @game.answer %>
+<%= render 'form' %>
+<% else %>
+<%= link_to "Play Again", new_game_path %>
+<% end %>
+<%= link_to 'Games', games_path %>
 
 
  
