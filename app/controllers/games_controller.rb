@@ -1,27 +1,31 @@
 class GamesController < ApplicationController
+	
 	def index
 		@games = Game.all
 	end
 
 	def new
-	end
+		@game = Game.create
 
-	def create
-		@game = Game.new(game_params)
-		@game.answer = rand(10)
 
-		@game.save
 		redirect_to @game
 	end
-
+	
 	def show
   		@game = Game.find(params[:id])
+  		@guess = guess
+  		
 	end
 
 	def update
 		@game = Game.find(params[:id])
-		@game.update(game_params)
-		redirect_to @game
+		@game.guess_count += 1
+		@guess = guess
+		@game.save
+			
+  		
+		render 'games/show'
+		
 	end
 
 	def destroy
@@ -34,7 +38,7 @@ class GamesController < ApplicationController
 
 
 	private
-		def game_params
-			params.require(:game).permit(:guess, :answer)
+		def guess
+			params[:guess] 
 		end
 end

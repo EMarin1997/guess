@@ -1,8 +1,12 @@
-<% @game.guess = nil %>
+<% @guess.nil? %>
 <%= form_for @game do |f| %>
- <p>
-  <%= f.label :try_again! %><br>
-  <%= f.text_field :guess %>
+ <p> 
+ 	<% if @game.guess_count == 0 %>
+ 		<%= f.label :guess, "Guess" %>
+ 	<% else %>
+  		<%= f.label :guess, "Try Again!" %><br>
+ 	 <% end %>
+  <%= text_field_tag :guess %>
  </p>
  <p>
   <%= f.submit %>

@@ -2,14 +2,14 @@
 <table>
   <tr>
     <th>Answer</th>
-    <th>Guess</th>
+    <th>Guesses</th>
     <th colspan="3"></th>
   </tr>
  
   <% @games.each do |game| %>
     <tr>
       <td><%= game.answer %></td>
-      <td><%= game.guess %></td>
+      <td><%= game.guess_count %></td>
       <td><%= link_to 'Play', game_path(game) %></td>
       <td><%= link_to 'Delete', game_path(game),
                       method: :delete, data: { confirm: 'Are you sure?'
